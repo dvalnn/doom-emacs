@@ -92,17 +92,6 @@
 
 (advice-add 'evil-yank :around #'dvalinn/evil-yank-highlight-advice)
 
-;; Compile in parent directory
-(defun dvalinn/compile-in-parent-directory ()
-  (interactive)
-  (let ((default-directory
-         (if (string= (file-name-extension buffer-file-name) "ml")
-             (concat default-directory "..")
-           default-directory))))
-  (call-interactively #'compile))
-
-(evil-define-key 'normal 'global (kbd "<SPC> c p") #'dvalinn/compile-in-parent-directory)
-
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
