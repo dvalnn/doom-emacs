@@ -39,7 +39,6 @@
 ;; Use `:pin' to specify a particular commit to install.
 ;; (package! builtin-package :pin "1a2b3c4d5e")
 
-
 ;; Doom's packages are pinned to a specific commit and updated from release to
 ;; release. The `unpin!' macro allows you to unpin single packages...
 ;; (unpin! pinned-package)
@@ -50,3 +49,6 @@
 
 (package! copilot ;; Github Copilot for Emacs
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
+
+(package! dts-mode) ;; Device Tree Source mode for Emacs
+(package! just-mode) ;; Major mode for editing justfiles
