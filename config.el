@@ -48,7 +48,7 @@
 ;; (setq-default vterm-shell "/run/current-system/sw/bin/nu")
 ;; (setq-default explicit-shell-file-name "/run/current-system/sw/bin/nu")
 
-(setq doom-font (font-spec :size 23))
+(setq doom-font (font-spec :size 22))
 
 (defun dvalinn/copilot-disable-predicate ()
   "When copilot should not automatically show completions."
@@ -93,6 +93,22 @@
   (apply orig-fn beg end args))
 
 (advice-add 'evil-yank :around #'dvalinn/evil-yank-highlight-advice)
+
+;; Start Emacs in fullscreen and without decorations
+(add-to-list 'default-frame-alist '(undecorated . t))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; Org-babel mermaid configuration
+(setq ob-mermaid-cli-path "mmdc")
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (mermaid . t)
+   (scheme . t)
+   (org . t)
+   )
+ )
+(setenv "PUPPETEER_EXECUTABLE_PATH" "/usr/bin/google-chrome")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.

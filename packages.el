@@ -50,5 +50,7 @@
 (package! copilot ;; Github Copilot for Emacs
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
 
+(package! nushell-mode :recipe (:host github :repo "mrkkrp/nushell-mode"))
 (package! dts-mode) ;; Device Tree Source mode for Emacs
 (package! just-mode) ;; Major mode for editing justfiles
+(package! ob-mermaid) ;; Mermaid support for org-babel
